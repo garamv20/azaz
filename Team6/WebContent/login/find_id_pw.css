@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.main{
+	padding: 50px;
+	margin: 0 auto;
+}
+input[type="radio"]{display:none;}
+input[type="radio"] + label {
+	display: inline-block;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    width: 20%;
+    line-height: 20px;
+    font-weight: bold;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px 3px 0 0;
+    color:#777;
+    border-width:1px 1px 0 0;
+    cursor:pointer;
+}
+input[type="radio"]:checked + label {
+	/*background: #aaa;*/
+	color: #000;
+	border-top: 2px solid #2e9cdf;
+	border-bottom: 1px solid #ffffff;
+}
+.conbox {   
+	padding: 32px;
+    border: 1px solid #ddd;
+    width: 60%;
+    height: 100%;
+    display: none;
+}
+input[id="tab1"]:checked ~ .con1 {display: block;}
+input[id="tab2"]:checked ~ .con2 {display: block;}

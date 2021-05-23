@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>가산대학교</title>
+ 
+    <!-- 반응형 웹 만들기 -->
+    <!-- 1. 모바일용 css -->
+    <link rel="stylesheet" href="./gc_mobile.css" media="(max-width:670px)">
+ 
+    <!-- 2. 데스크탑용 외부 스타일시트 적용 -->
+    <link rel="stylesheet" href="./login.css" media="(min-width:670px)">
+
+</head>
+<body>
+    
+    <div id="page">
+ 
+        <header>
+            <div id="logo">
+                <img src="../images/logo.jpg" alt="Logo">
+            </div>
+ 
+            <div id="top_menu">
+                <a href="hhma01R">HOME</a> | 
+                <a href="#">NOTICE</a> |
+                <a href="#">LOGIN</a> |
+            </div>
+ 
+            <nav>
+                <ul>
+                    <li><a href="#">대학소개</a></li>
+                    <li><a href="#">학과소개</a></li>
+                    <li><a href="#">게시판</a></li>
+                    <li><a href="#">학사관리</a></li>
+                </ul>
+            </nav>
+ 
+        </header>
+
+        <section class="login-form">
+            <h1>Login</h1>
+            <p>회원서비스를 이용하시려면 로그인이 필요합니다.</p>
+            <p>아이디와 비밀번호를 입력 후 로그인 하십시오.</p>
+
+            <form action="hhlg0102R.jsp" method="post">
+                <div class="int-area">
+                    <input type="text" name="id" id="id"
+                     autocomplete="off" required>
+                     <label for="id">아이디를 입력해주세요</label>
+                </div>
+                <div class="int-area">
+                    <input type="password" name="pwd" id="pw"
+                     autocomplete="off" required>
+                     <label for="id">비밀번호를 입력해주세요</label>
+                </div>
+                <div class="btn-area">
+                    <button type="submit">로그인</button>
+                </div>
+            </form>
+            <div class="caption">
+                <a href="hhlg0201.jsp">아이디·비밀번호 찾기</a>
+            </div>
+        </section>
+ 
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer">
+                        <ul>
+                            <li>부산 부산진구 중앙대로 688</li>
+                            <li>TEL : 051-912-1000</li>
+                            <li><a href="#">사이트 운영원칙</a></li>
+                            <li><a href="#"><strong>개인정보취급방침</strong></a></li>
+                        </ul>
+                        <address>
+                            Copyright ©
+                            <a href="http://GG.co.kr"><strong>가산대학교</strong></a>
+                            All Rights Reserved.
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
