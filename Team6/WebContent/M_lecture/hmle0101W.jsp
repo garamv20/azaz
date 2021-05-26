@@ -3,7 +3,12 @@
 <%@page import="mlecture.M_lectureDBbean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
- <%response.setCharacterEncoding("euc-kr"); %>
+ <%response.setCharacterEncoding("euc-kr"); 
+ 	//String major ="";
+ 	//if(request.getParameter("major_no")!=null){
+	//	major = request.getParameter("major_no");
+ 	//}
+ %>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -86,38 +91,6 @@ td input {
                     </li>
                 </ul>
             <!-- </nav> -->
-
-           <!-- <nav> -->
-            <ul class="main-ul">
-                <li><a href="#">학적</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">학적사항</a></li>
-                        <li><a href="#">개인정보수정</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">수업</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">강좌조회</a></li>
-                        <li><a href="#">수강신청</a></li>
-                        <li><a href="#">수강신청 확인/정정</a></li>
-                        <li><a href="#">시간표조회</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">성적</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">현학기 성적조회</a></li>
-                        <li><a href="#">전체 성적조회</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">게시판</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">자유게시판</a></li>
-                    </ul>
-                </li>
-            </ul>
-        <!-- </nav> -->
         </header>
     
     <section>
@@ -182,15 +155,49 @@ td input {
            			<th>이수구분</th>
            			<td><input type="text" name="com"></td>
            		</tr>
+           		<script type="text/javascript">
+    
+       			 var openWin;
+    
+        		 function openChild1()
+        	{
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            openWin = window.open("hmle0103W.jsp",
+                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>	
            		<tr>
            			<th>전공</th>
-           			<td><input class="sarticle1in2" type="text" name="major">
-           			 <input type="button" id="execute" value="검색">
+           			<td><input class="sarticle1in2" type="text" id="pInput" readonly>
+           			<input type="hidden" id="put1" name="major_no">
+           			 <input type="button" value="검색" onclick="openChild1()">
            			 </td>
            		</tr>
            		<tr>
+           		
+           		
+     <script type="text/javascript">
+    
+       			 var openWin2;
+    
+        		 function openChild2()
+        	{
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm2";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            openWin = window.open("hmle0104W.jsp",
+                    "childForm2", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>	
            			<th>담당교수</th>
-           			<td><input class="sarticle1in2" type="text" name="pro"> <input type="button" value="검색"></td>
+           			<td><input class="sarticle1in2" type="text" id="pInput2" readonly>
+           			<input type="button" value="검색" onclick="openChild2()">
+           			<input type="hidden" id="put2" name="professor_p_no">
+           			</td>
            		</tr>	
            </table>
            <center><input type="submit" value="강의추가">

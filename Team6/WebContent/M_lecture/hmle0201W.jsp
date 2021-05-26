@@ -192,18 +192,52 @@ td input {
            			<input type="text" name="com" value="<%=lrb.getL_com()%>">
            			</td>
            		</tr>
+           		<script type="text/javascript">
+    
+       			 var openWin;
+    
+        		 function openChild1()
+        	{
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            openWin = window.open("hmle0103W.jsp",
+                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>	
            		<tr>
            			<th>전공</th>
-           			<td><input class="sarticle1in2" type="text" name="major" value="<%=lrb.getMajor_no()%>">
-           			 <input type="button" id="execute" value="검색">
+           			<td><input class="sarticle1in2" type="text" id="pInput" readonly>
+           			<input type="hidden" id="put1" name="major_no">
+           			 <input type="button" value="검색" onclick="openChild1()">
            			 </td>
            		</tr>
            		<tr>
+           		
+           		
+     <script type="text/javascript">
+    
+       			 var openWin2;
+    
+        		 function openChild2()
+        	{
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm2";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            openWin = window.open("hmle0104W.jsp",
+                    "childForm2", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>	
            			<th>담당교수</th>
-           			<td><input class="sarticle1in2" type="text" name="pro" value="<%=lrb.getProfessor_p_no()%>"> <input type="button" value="검색"></td>
-           		</tr>
-           		<%} %>	
+           			<td><input class="sarticle1in2" type="text" id="pInput2" readonly>
+           			<input type="button" value="검색" onclick="openChild2()">
+           			<input type="hidden" id="put2" name="professor_p_no">
+           			</td>
+           		</tr>	
            </table>
+           		<%} %>	
            <center><input type="submit" value="수정완료">
            <input type="button" value="취소"></center>
            </form>

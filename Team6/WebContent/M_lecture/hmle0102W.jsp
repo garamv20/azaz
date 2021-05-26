@@ -14,8 +14,8 @@
 	int l_start = Integer.parseInt(request.getParameter("time"));
 	int l_max = Integer.parseInt(request.getParameter("max"));
 	int l_com = Integer.parseInt(request.getParameter("com"));
-	int major_no = Integer.parseInt(request.getParameter("major"));
-	int professor_p_no = Integer.parseInt(request.getParameter("pro"));
+	int major_no = Integer.parseInt(request.getParameter("major_no"));
+	int professor_p_no = Integer.parseInt(request.getParameter("professor_p_no"));
 	String l_day = request.getParameter("day");
 	M_lectureDBbean dBbean = M_lectureDBbean.getinstance();
 	int re =dBbean.mlecinsert(l_name, l_level, l_sem, 2, l_max, l_day, l_start, 50, l_com, major_no, professor_p_no);

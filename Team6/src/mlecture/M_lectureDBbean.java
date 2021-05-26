@@ -35,10 +35,10 @@ public class M_lectureDBbean {
 			con = getConnection();
 			switch (selectke) {
 			case "01":
-				sql = "select l_no,l_name,l_max from lecture where l_name like ?";
+				sql = "select l_no,l_name,l_max from major m , lecture l where m.no = l.major_no and name like ? order by no";
 				break;
 			case "02":
-				sql = "select l_name,l_max from lecture l,major m where l.major_no = m.no and name like ?";
+				sql = "select l_no,l_name,l_max from lecture where l_name like ?";
 				break;
 			default:
 				break;
@@ -51,8 +51,9 @@ public class M_lectureDBbean {
 				mltb = new M_lectureBean();
 				mltb.setL_no(rs.getInt(1));
 				mltb.setL_name(rs.getString(2));
-				mltb.setL_max(rs.getInt(3));
+				mltb.setL_max(3);
 				list.add(mltb);
+
 			}
 
 		} catch (Exception e) {
@@ -306,5 +307,80 @@ public class M_lectureDBbean {
 			}
 		}
 		return re;
+	}
+
+	public ArrayList<M_lectureBean> majorlist(String name) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<M_lectureBean> list = new ArrayList<M_lectureBean>();
+		M_lectureBean mltb = null;
+		String sql = "select name,no from major where name like?";
+		try {
+			con = getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, "%" + name + "%");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				mltb = new M_lectureBean();
+				mltb.setM_name(rs.getString("name"));
+				mltb.setMajor_no(rs.getInt("no"));
+				list.add(mltb);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+	public ArrayList<M_lectureBean> profelist(String name) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<M_lectureBean> list = new ArrayList<M_lectureBean>();
+		M_lectureBean mltb = null;
+		String sql = "select p_name,p_no,m.name from professor p , major m where p.major_no = m.no and p_name like  ?";
+		try {
+			con = getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, "%" + name + "%");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				mltb = new M_lectureBean();
+				mltb.setP_name(rs.getString(1));
+				mltb.setProfessor_p_no(rs.getInt(2));
+				mltb.setM_name(rs.getString(3));
+				list.add(mltb);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return list;
 	}
 }

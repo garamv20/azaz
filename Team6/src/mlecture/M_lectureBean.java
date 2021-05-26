@@ -13,9 +13,15 @@ public class M_lectureBean {
 	private String l_com;
 	private int major_no;
 	private int professor_p_no;
+	private String m_name;
+	private String p_name;
 	
-	
-	
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
 	public int getL_level() {
 		return l_level;
 	}
@@ -87,6 +93,12 @@ public class M_lectureBean {
 	}
 	public void setL_max(int l_max) {
 		this.l_max = l_max;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
 	}
 	
 	
